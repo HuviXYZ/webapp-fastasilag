@@ -1,0 +1,69 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fantasifotball</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <h1>Fantasifotball</h1>
+    <div class="flex-container">
+      <div>
+        <h2>Lag</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Lagnavn</th>
+
+              <th>Lageier</th>
+
+              <th>Seiere</th>
+
+              <th>Gå til lag</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each fantasilag}}
+              <tr>
+                <td>{{this.lagnavn}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.seiere}}</td>
+                <form action="/visLagOppstilling" method="POST">
+                  <td><button name="lagid" value="{{this.fantasilagid}}">Gå til lag</button></td>
+                </form>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+        <form action="/laglag"><button type="submit">Oøpprett lag</button></form>
+      </div>
+      <div>
+        <h2 style="padding-bottom: 7px;">konkurranse</h2><br>
+        <p>Velg to lag som skal spille mot hverandre</p>
+        <form action="/konkurranse" method="POST">
+          <label for="konkurranse">Velg hjemmelag:</label>
+          <select name="hjemmelag" id="hjemmelag">
+            <option value="">velg hjemmelag</option>
+            {{#each fantasilag}}
+              <option value="{{this.fantasilagid}}">{{this.lagnavn}}</option>
+            {{/each}}
+          </select><br>
+          <label for="konkurranse">Velg bortelag:</label>
+          <select name="bortelag" id="bortelag">
+            <option value="">velg bortelag</option>
+            {{#each fantasilag}}
+              <option value="{{this.fantasilagid}}">{{this.lagnavn}}</option>
+            {{/each}}
+          </select><br><br>
+          <button>Kjør konkurranse</button>
+        </form>
+      </div>
+     
+    <form action="/logout" method="POST" style="position: fixed; bottom: 45px;"><button>Logg ut</button></form>
+    <form action="/slett" method="GET" style="position: fixed; bottom: 0px;"><button>Fjern din bruker</button></form>
+   
+  
+
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lag ditt lag</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div style="color: white; text-align:center;">
+  <h1>Lag ditt lag</h1>
+  <form action="/registrerlag" method="POST">
+
+          <label for="registrerlag">Lagnavn:</label>
+          <input type="text" name="lagnavn"><br>
+
+
+          <label for="registrerlag">Velg spiss:</label>
+          <select name="spiss" id="spiss">
+            <option value="">velg Sspiss</option>
+            {{#each spiss}}
+              <option value="{{this.id}}">{{this.navn}}</option>
+            {{/each}}
+          </select><br>
+
+          <label for="registrerlag">velg venstre midt:</label>
+          <select name="venstremidt" id="venstremidt">
+            <option value="">velg venstre midt</option>
+            {{#each venstremidt}}
+              <option value="{{this.id}}">{{this.navn}}</option>
+            {{/each}}
+          </select><br>
+      
+
+          <label for="registrerlag">velg midt:</label>
+          <select name="midt" id="midt">
+            <option value="">Velg midt</option>
+            {{#each midt}}
+              <option value="{{this.id}}">{{this.navn}}</option>
+            {{/each}}
+          </select><br>
+
+
+
+
+
+          <label for="registrerlag">Velg høyre midt:</label>
+          <select name="hoyremidt" id="hoyremidt">
+            <option value="">Velg høyre midt</option>
+            {{#each hoyremidt}}
+              <option value="{{this.id}}">{{this.navn}}</option>
+            {{/each}}
+          </select><br>
+
+          <label for="registrerlag">Velg venstre back:</label>
+          <select name="venstreback" id="venstreback">
+            <option value="">Velg venstre back</option>
+            {{#each venstreback}}
+              <option value="{{this.id}}">{{this.navn}}</option>
+            {{/each}}
+            </select><br>
+
+
+
+            <label for="registrerlag">Velg høyre back:</label>
+          <select name="hoyreback" id="hoyreback">
+            <option value="">Velg høyre back</option>
+            {{#each hoyreback}}
+              <option value="{{this.id}}">{{this.navn}}</option>
+            {{/each}}
+            </select><br>
+
+
+
+
+            <label for="registrerlag">Velg keeper:</label>
+          <select name="keeper" id="keeper">
+            <option value="">Velg keeper</option>
+            {{#each keeper}}
+              <option value="{{this.id}}">{{this.navn}}</option>
+            {{/each}}
+          </select><br><br>
+
+          <button>Registrer lag</button>
+</form>
+</div>
+
+
+<form action="/logout" method="POST" style="position:absolute; bottom:45px; left:50%; transform: translateX(-50%);"><button>Logg ut</button></form>
+
+<form action="/" method="GET" style="position:absolute; bottom:0; left:50%; transform: translateX(-50%);"><button>Gå tilbake</button></form>
+
+
+ 
+</body>
+</html>
